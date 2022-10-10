@@ -1,6 +1,7 @@
 .vscode
 pjproject-*
+build
 
 vent-control
 
-*.o
+*.log

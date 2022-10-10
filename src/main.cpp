@@ -10,14 +10,14 @@
 #include "request.h"      // requestApi()
 #include "stringMacros.h" // STRING_STARTS_WITH()
 
-#define MAX_DEVIATION_FROM_AVERAGE_KELVIN (4.0F)
+#define MAX_DEVIATION_FROM_AVERAGE_KELVIN (1.5F)
 
 #define SLEEP_AFTER_FAILURE_SEC 5
 #define SLEEP_AFTER_SUCCESS_SEC 15
 
-#define AVERAGE_MAX_VALUES ((60 / SLEEP_AFTER_SUCCESS_SEC) * 60 * 24)
-// 4 readings/second * 60 seconds/minute * 24 minutes/day
-#define AVERAGE_MIN_BEFORE_BUZZ 100
+#define AVERAGE_MAX_VALUES ((60 / SLEEP_AFTER_SUCCESS_SEC) * 25)
+// e.g. 4 readings/min * 60 min/hr * 6 hr/day
+#define AVERAGE_MIN_BEFORE_BUZZ (AVERAGE_MAX_VALUES / 2)
 // at least 100 values before any buzzing is requested
 
 namespace {
